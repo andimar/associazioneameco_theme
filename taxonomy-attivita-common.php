@@ -17,7 +17,7 @@
      
       <?php if(is_user_logged_in() ) : ?>
         <div style="color:#555;font-size:12px; margin-left:30px">
-          [data inizio: <?=$initiative->data_inizio?>]
+          [data inizio: <?=isset($initiative->data_inizio) ? $initiative->data_inizio : 'N/A'?>]
           <a href="/wp-admin/post.php?post=<?=$initiative->ID?>&action=edit">[modifica l'iniziativa]</a>
         </div>
       <?php endif;?>
