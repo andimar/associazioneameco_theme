@@ -37,7 +37,7 @@
         <div class="large-9 medium-12 small-12 columns ">
             <?php the_content(); ?>
 
-            <?php if(is_user_logged_in() && current_user_can('edit_post')) : ?>
+            <?php if(is_user_logged_in() ) : ?>
               <div style="color:#555;font-size:12px;">
                 <a href="/wp-admin/post.php?post=<?php echo $post->ID; ?>&action=edit">[modifica insegnante]</a>
               </div>
@@ -75,7 +75,7 @@
         <div class="large-9 medium-12 small-12 columns ">
             <?php the_content(); ?>
 
-            <?php if(is_user_logged_in() && current_user_can('edit_post')) : ?>
+            <?php if(is_user_logged_in() ) : ?>
               <div style="color:#555;font-size:12px;">
                 <a href="/wp-admin/post.php?post=<?php echo $post->ID; ?>&action=edit">[modifica insegnante]</a>
               </div>

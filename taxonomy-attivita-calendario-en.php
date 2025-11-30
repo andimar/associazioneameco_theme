@@ -83,7 +83,7 @@
             }
           ?>
 
-          <?php if(is_user_logged_in() && current_user_can('edit_post')) : ?>
+          <?php if(is_user_logged_in() ) : ?>
             <div style="color:#555;font-size:12px; margin-left:30px">
               [data inizio: <?=$data_inizio; ?>]
               <a href="/wp-admin/post.php?post=<?=$post->ID?>&action=edit">[modifica l'iniziativa]</a>
@@ -159,7 +159,7 @@
             }
 
           ?>
-          <?php if(is_user_logged_in() && current_user_can('edit_post')) : ?>
+          <?php if(is_user_logged_in() ) : ?>
             <div style="color:#555;font-size:12px; margin-left:30px">
               [data inizio: <?php echo $data_inizio; ?>]
               <a href="/wp-admin/post.php?post=<?php echo $post->ID; ?>&action=edit">
@@ -207,7 +207,7 @@
         $info_query = new WP_Query( $args );
         if ( $info_query->have_posts() ) : $info_query->the_post(); ?>
         <div class="large-12 medium-12  small-12 columns">
-          <?php if(is_user_logged_in() && current_user_can('edit_post')) : ?>
+          <?php if(is_user_logged_in() ) : ?>
             <div style="color:#555;font-size:12px; margin-left:30px">
               <a href="/wp-admin/post.php?post=<?php echo $post->ID; ?>&action=edit">
                 [modifica le informazioni generali]

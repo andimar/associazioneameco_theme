@@ -58,7 +58,7 @@
           <div class="cd-card">
 
             <div class="cd-card-header">
-              <?php if(is_user_logged_in() && current_user_can('edit_post')): ?>
+              <?php if(is_user_logged_in() ): ?>
                   <span><a href="/wp-admin/post.php?post=<?= $post->ID?>&action=edit">[ modifica il CD ]</a></span>
               <?php endif; ?>
             </div>
