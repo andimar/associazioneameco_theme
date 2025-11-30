@@ -19,18 +19,21 @@
 
       <?php
         $intensivi_giovedi = get_term_by('slug', 'intensivi-di-dharma-e-meditazione-vipassana-del-giovedi-en', 'attivita');
-        $intensivi_giovedi_link = get_term_link($intensivi_giovedi->term_id, 'attivita');
-        $description = substr($intensivi_giovedi->description, 0, strpos($intensivi_giovedi->description, "<!--more-->"));
+        if($intensivi_giovedi) {
+          $intensivi_giovedi_link = get_term_link($intensivi_giovedi->term_id, 'attivita');
+          $description = substr($intensivi_giovedi->description, 0, strpos($intensivi_giovedi->description, "<!--more-->"));
+        }
       ?>
-
+      <?php if($intensivi_giovedi) : ?>
       <a href="<?=$intensivi_giovedi_link ?>">
         <h4 class="intensivi"><?=$intensivi_giovedi->name?></h4>
       </a>
       <article class="event-card">
         
-        <?= $description; ?>
-        
-      </article>
+          <?= $description; ?>
+          
+        </article>
+      <?php endif; ?>
 
       <?php
         $current_date = date('Ymd');

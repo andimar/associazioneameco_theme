@@ -13,7 +13,7 @@
 
 	// AGGIUNGE LE CUSTOMIZZAZIONI DEL TEMA
 	require_once dirname( __FILE__ ) . '/customization.php';
-
+	require_once dirname( __FILE__ ) . '/src/ThemeSetup/RemoveComments.php';
 
 	// Theme Setup (based on twentythirteen: http://make.wordpress.org/core/tag/twentythirteen/)
 	function andimar_setup() {
@@ -44,7 +44,8 @@
 
 
 
-
+    
+    new THEME\ThemeSetup\RemoveComments();
 
 
 
