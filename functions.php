@@ -415,7 +415,7 @@ function copy_post_metas( $metas ) {
         $menu_items = wp_get_nav_menu_items($menu->term_id);
 
         //$menu_list  = '<nav>' ."\n";
-        $menu_list .= '<ul '.$args.'>' ."\n";
+        $menu_list = '<ul '.$args.'>' ."\n";
 
         $count = 0;
         $submenu = false;
@@ -443,14 +443,16 @@ function copy_post_metas( $metas ) {
                 $menu_list .= '<a href="'.$link.'">'.$title.'</a>' ."\n";
                 $menu_list .= '</li>' ."\n";
 
-                if ( $menu_items[ $count + 1 ]->menu_item_parent != $parent_id && $submenu ){
+
+
+                if ( isset( $menu_items[ $count + 1 ] ) && $menu_items[ $count + 1 ]->menu_item_parent != $parent_id && $submenu ){
                     $menu_list .= '</ul>' ."\n";
                     $submenu = false;
                 }
 
             }
 
-            if ( $menu_items[ $count + 1 ]->menu_item_parent != $parent_id ) {
+            if ( isset( $menu_items[ $count + 1 ] ) && $menu_items[ $count + 1 ]->menu_item_parent != $parent_id ) {
                 $menu_list .= '</li>' ."\n";
                 $submenu = false;
             }

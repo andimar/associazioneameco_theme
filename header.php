@@ -83,8 +83,12 @@
 
 	
 	<?php 
-		
-		$flag = function_exists('pll_the_languages') ? (object) array_shift(array_filter( pll_the_languages([ 'raw' => 1 ]), function ($lang){ return !$lang['current_lang']; })) : null; 
+		$flag = null;
+		if(function_exists('pll_the_languages')){
+			$languages = pll_the_languages([ 'raw' => 1 ]);	
+			$languages = array_filter( $languages, fn ($lang) => !$lang['current_lang'] );
+			$flag = (object) array_shift( $languages );
+		}
 
 		$flag->image = empty( $flag ) ? '' : THEME_URL . '/images/social_buttons/' . ( $flag->name == 'English' ? 'united-kingdom.svg': 'italy.svg' );
 		$flag->title = empty( $flag ) ? '' : ( $flag->name == "English" ? 'English Version' : 'Versione Italiana' );

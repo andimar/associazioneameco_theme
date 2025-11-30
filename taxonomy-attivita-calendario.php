@@ -108,7 +108,8 @@
              }
            }
           ?>
-          <?php if(is_user_logged_in() && current_user_can('edit_post')) : ?>
+          
+          <?php if(is_user_logged_in() ) : ?>
             <div style="color:#555;font-size:12px; margin-left:30px">
               [data inizio: <?php echo $data_inizio; ?>]
               <a href="/wp-admin/post.php?post=<?php echo $post->ID; ?>&action=edit">

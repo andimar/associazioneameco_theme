@@ -26,16 +26,20 @@ class Biographies
      	while($insegnanti_query->have_posts()) {
     			$insegnanti_query->the_post();
 
+                $post = $insegnanti_query->post;
+                
+
     			$conduttori = get_the_terms($post->ID, 'conduttori');
-                
-                
-    			foreach ((array) $conduttori as $conduttore) {
-    				$this->biographies[] = new Biography($conduttore->term_id,
-                                                 get_the_title(),
-                                                 get_the_content(),
-                                                 get_the_post_thumbnail_url($post->ID, 'list'));
-    			}
-    	}
+
+                if(!empty($conduttori) and is_array($conduttori)) {
+                    foreach ($conduttori as $conduttore) {
+                        $this->biographies[] = new Biography($conduttore->term_id,
+                            get_the_title(),
+                            get_the_content(),
+                            get_the_post_thumbnail_url($post->ID, 'list'));
+                    }
+                }
+    		}
     	wp_reset_query();
     	wp_reset_postdata();
     }
